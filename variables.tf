@@ -79,14 +79,4 @@ variable "database" {
   }
  }
 
-variable "packer" {
-  description = "The size slug of packer build droplet"
-  default      = {
-    snapshot   = "packer-builder"
-    size       = "s-1vcpu-1gb-intel"
-  }
-}
-
-
-
 
