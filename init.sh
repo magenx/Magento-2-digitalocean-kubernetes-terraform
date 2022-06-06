@@ -10,11 +10,16 @@ if [[ -e "this.init.lock" ]]; then
 fi
 
 ## install terraform and packer
-dpkg-query -l terraform packer >/dev/null || {
+dpkg-query -l terraform >/dev/null || {
 apt-get update && apt-get install -y gnupg software-properties-common curl;
+mkdir -p /etc/apt/keyrings;
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
 curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -;
 apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main";
-apt-get update && apt-get install terraform;
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list;
+apt-get update && apt-get -y install terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin;
 }
 
 ## set access token
