@@ -32,7 +32,7 @@ Create working directory:
 `mkdir magento && cd magento`
 
 Using git clone download terraform configuration:  
-`git clone https://github.com/magenx/Magento-2-digitalocean-cluster-terraform .`  
+`git clone https://github.com/magenx/Magento-2-digitalocean-kubernetes-terraform .`  
   
 For ssl certificate configuration add domains and email   
 Point your domains to [DigitalOcean DNS](https://docs.digitalocean.com/tutorials/dns-registrars/)  
