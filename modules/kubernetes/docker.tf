@@ -11,15 +11,13 @@ resource "docker_image" "this" {
   force_remove = true
   build {
     path       = "${path.module}/docker/${each.key}"
-    tag        = ["${var.dockerhub}/${each.key}: "]
+    tag        = ["${var.dockerhub}/${each.key}:latest"]
     no_cache   = true
     
-    build_arg  = {
-      var.docker_image.build_args[each.key]
-    }
+    build_arg  = var.docker_image[each.key].build_arg
     
     label      = {
-      author : var.brand
+      author : "${var.brand}"
     }
     
   }
@@ -38,7 +36,7 @@ resource "null_resource" "docker_push" {
     interpreter = ["bash", "-c"]
     command = <<-EOT
         echo "${DOCKERHUB_PASSWORD}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
-        docker push ${var.dockerhub}/${each.key}:${sum([ , 1])}
+        docker push "${var.dockerhub}/${each.key}:latest"
       EOT
   }
 }
