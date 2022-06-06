@@ -64,6 +64,35 @@ variable "kubernetes" {
   }
  }
 
+variable "dockerhub" {
+  default = ""
+}
+
+variable "docker_image" {
+  default = {
+    elasticsearch = {
+      build_arg  = {
+        ELASTICSEARCH_VERSION = "7.17.4"
+      }
+    }
+    php = {
+      build_arg  = {
+        ALPINE_VERSION = "3.16.0"
+      }
+    }
+    nginx = {
+      build_arg  = {
+        ALPINE_VERSION = "3.16.0"
+      }
+    }
+    magento = {
+      build_arg  = {
+        ALPINE_VERSION = "3.16.0"
+      }
+    }
+  }
+}
+
 variable "database" {
   default = {
     mysql = {
