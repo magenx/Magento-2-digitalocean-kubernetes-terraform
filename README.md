@@ -3,8 +3,7 @@
 > Enterprise-grade solution for companies of all sizes, B2B B2C, providing the best customer experience.  
 
 
-<img src="https://user-images.githubusercontent.com/1591200/117845471-7abda280-b278-11eb-8c88-db3fa307ae40.jpeg" width="155" height="105"> <img src="https://user-images.githubusercontent.com/1591200/117845982-edc71900-b278-11eb-81ec-e19465f1344c.jpeg" width="140" height="130"> <img src="https://user-images.githubusercontent.com/1591200/170114082-7fea7101-e342-459b-8eb3-6fbe0a98ba46.png" width="235" height="120">
-<img src="https://user-images.githubusercontent.com/1591200/130320410-91749ce8-5af1-4802-af25-ffb36e7ded98.png" width="105" height="120"><img src="https://user-images.githubusercontent.com/1591200/143559434-7593c7bf-79b5-4a1f-b6cc-71060cf0bbec.png" width="160" height="170">
+<img src="https://user-images.githubusercontent.com/1591200/117845471-7abda280-b278-11eb-8c88-db3fa307ae40.jpeg" width="155" height="105"> <img src="https://user-images.githubusercontent.com/1591200/117845982-edc71900-b278-11eb-81ec-e19465f1344c.jpeg" width="140" height="130"> <img src="https://user-images.githubusercontent.com/1591200/172212231-a7b9c535-19b5-40e1-8576-8fbba9ba0fa1.png" width="150" height="120">  <img src="https://user-images.githubusercontent.com/1591200/170114082-7fea7101-e342-459b-8eb3-6fbe0a98ba46.png" width="235" height="120">  <img src="https://user-images.githubusercontent.com/1591200/130320410-91749ce8-5af1-4802-af25-ffb36e7ded98.png" width="105" height="120">
 
 <br />
   
