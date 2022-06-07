@@ -9,8 +9,8 @@ if [[ -e "this.init.lock" ]]; then
   exit 1
 fi
 
-## install terraform and packer
-dpkg-query -l terraform >/dev/null || {
+## install terraform and docker
+dpkg-query -l terraform docker >/dev/null || {
 apt-get update && apt-get install -y gnupg software-properties-common curl;
 mkdir -p /etc/apt/keyrings;
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
