@@ -1,3 +1,5 @@
+### WIP POC
+
 ## Magento 2 auto scaling cluster with Terraform on DigitalOcean cloud
 > Deploy a full-scale secure and flexible e-commerce infrastructure based on Magento 2 in a matter of seconds.  
 > Enterprise-grade solution for companies of all sizes, B2B B2C, providing the best customer experience.  
