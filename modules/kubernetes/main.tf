@@ -78,7 +78,7 @@ resource "kubernetes_deployment" "this" {
       spec {
         hostname      = each.key
         node_selector = {
-          "doks.digitalocean.com/node-pool" = each.key
+          "doks.digitalocean.com/node-pool" = "${var.project.name}-${each.key}"
         }
         restart_policy                   = "Always"
         share_process_namespace          = false
