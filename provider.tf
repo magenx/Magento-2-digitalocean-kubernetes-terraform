@@ -13,10 +13,18 @@ terraform {
       source  = "hashicorp/helm"
       version = ">= 2.0.1"
     }
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = ">= 2.16.0"
+    }
   }
 }
 
 provider "digitalocean" {}
+
+provider "docker" {
+  host = "unix:///var/run/docker.sock"
+}
 
 data "digitalocean_kubernetes_cluster" "magento" {
   depends_on = [module.kubernetes.cluster_id]
@@ -40,3 +48,5 @@ provider "helm" {
     )
   }
 }
+
+  
