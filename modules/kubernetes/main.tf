@@ -92,12 +92,12 @@ resource "kubernetes_deployment" "this" {
           }
           resources {
             limits = {
-              memory = each.value.memroy_max
-              cpu    = each.value.cpu_max
+              memory = each.value.max_memory
+              cpu    = each.value.max_cpu
             }
             requests = {
-              memory = each.value.memroy_min
-              cpu    = each.value.cpu_min
+              memory = each.value.min_memory
+              cpu    = each.value.min_cpu
             }
           }
         }
