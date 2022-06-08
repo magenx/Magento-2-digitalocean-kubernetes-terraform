@@ -105,7 +105,8 @@ variable "kubernetes" {
  }
 
 variable "dockerhub" {
-  default = ""
+  description = "Docker Hub registry account name"
+  default     = ""
 }
 
 variable "database" {
