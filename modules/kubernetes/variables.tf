@@ -36,6 +36,11 @@ variable "brand" {
   type         = string
 }
 
+variable "domain" {
+  description  = "Domain name for this project per environment"
+  type         = string
+}
+
 variable "timezone" {
   description  = "Timezone for this project"
   type         = string
