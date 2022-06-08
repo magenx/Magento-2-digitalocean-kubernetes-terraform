@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:labs
-ARG ELASTICSEARCH_VERSION
+ARG ELASTICSEARCH_VERSION="7.17.4"
 FROM elasticsearch:${ELASTICSEARCH_VERSION}
 
 RUN <<EOF
