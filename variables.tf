@@ -94,7 +94,7 @@ variable "kubernetes" {
       min_nodes  = "1"
       max_nodes  = "2"
       size       = "s-1vcpu-2gb-intel"
-      port       = "80"
+      port       = "8081"
       replicas   = "2"
       max_memory = null
       max_cpu    = null
@@ -106,31 +106,6 @@ variable "kubernetes" {
 
 variable "dockerhub" {
   default = ""
-}
-
-variable "docker_image" {
-  default = {
-    elasticsearch = {
-      build_arg  = {
-        ELASTICSEARCH_VERSION = "7.17.4"
-      }
-    }
-    php = {
-      build_arg  = {
-        ALPINE_VERSION = "3.16.0"
-      }
-    }
-    nginx = {
-      build_arg  = {
-        ALPINE_VERSION = "3.16.0"
-      }
-    }
-    magento = {
-      build_arg  = {
-        ALPINE_VERSION = "3.16.0"
-      }
-    }
-  }
 }
 
 variable "database" {
