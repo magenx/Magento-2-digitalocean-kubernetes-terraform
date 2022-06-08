@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:labs
-ARG VARNISH_VERSION
+ARG VARNISH_VERSION="7.0.2"
 FROM varnish:${VARNISH_VERSION}
 
 ARG TIMEZONE
