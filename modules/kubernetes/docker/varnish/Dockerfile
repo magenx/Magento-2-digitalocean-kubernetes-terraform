@@ -2,9 +2,6 @@
 ARG VARNISH_VERSION
 FROM varnish:${VARNISH_VERSION}
 
-LABEL org.opencontainers.image.authors="admin@magenx.com"
-LABEL org.opencontainers.image.source="https://github.com/magenx/Magento-2-docker-configuration"
-
 ARG TIMEZONE
 
 RUN <<EOF
