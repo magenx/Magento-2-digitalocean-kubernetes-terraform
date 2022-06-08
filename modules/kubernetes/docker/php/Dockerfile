@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:labs
-ARG ALPINE_VERSION
+ARG ALPINE_VERSION="3.16.0"
 FROM alpine:${ALPINE_VERSION}
 
 ARG PHP_PACKAGES="apcu bcmath bz2 calendar ctype curl dom fileinfo fpm gd gettext gmp iconv intl json mbstring mcrypt msgpack mysqli oauth odbc opcache openssl pdo pdo_dblib pdo_mysql pdo_odbc pdo_sqlite pear phar redis simplexml soap sockets sodium sqlite3 ssh2 tokenizer xmlreader xmlrpc xmlwriter xsl zip"
