@@ -17,7 +17,6 @@ resource "docker_image" "this" {
     build_arg  = {
       BRAND          = "${var.brand}"
       DOMAIN         = "${var.domain}"
-      ALPINE_VERSION = "${var.alpine_version}"
       TIMEZONE       = "${var.timezone}"
     }
     
