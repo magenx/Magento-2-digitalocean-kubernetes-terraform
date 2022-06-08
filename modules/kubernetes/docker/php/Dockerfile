@@ -2,19 +2,19 @@
 ARG ALPINE_VERSION
 FROM alpine:${ALPINE_VERSION}
 
-ARG PHP_PACKAGES
-ARG PHP_VERSION
+ARG PHP_PACKAGES="apcu bcmath bz2 calendar ctype curl dom fileinfo fpm gd gettext gmp iconv intl json mbstring mcrypt msgpack mysqli oauth odbc opcache openssl pdo pdo_dblib pdo_mysql pdo_odbc pdo_sqlite pear phar redis simplexml soap sockets sodium sqlite3 ssh2 tokenizer xmlreader xmlrpc xmlwriter xsl zip"
+ARG PHP_VERSION="php81"
 
 ARG PHP_FPM_POOL="/etc/${PHP_VERSION}/php-fpm.d/www.conf"
 ARG PHP_INI="/etc/${PHP_VERSION}/php.ini"
 
-ARG TIMEZONE
-
 ARG BRAND
-ARG PHP_USER
-ARG ROOT_PATH
-ARG APP_ROOT_PATH
-ARG WEB_ROOT_PATH
+ARG PHP_USER="php-${BRAND}"
+ARG ROOT_PATH="/home/${BRAND}"
+ARG APP_ROOT_PATH="/home/${BRAND}/public_html"
+ARG WEB_ROOT_PATH="/home/${BRAND}/public_html/pub"
+
+ARG TIMEZONE
 
 RUN <<EOF
     apk update
