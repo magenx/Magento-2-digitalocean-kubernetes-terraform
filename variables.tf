@@ -55,7 +55,7 @@ variable "kubernetes" {
       replicas   = "2"
       max_memory = "756M"
       max_cpu    = null
-      min_memory = "12M"
+      min_memory = "128M"
       min_cpu    = "1"
     }
     magento = {
@@ -84,6 +84,17 @@ variable "kubernetes" {
       node_count = "1"
       size       = "s-1vcpu-2gb-intel"
       port       = "9200"
+      replicas   = "2"
+      max_memory = null
+      max_cpu    = null
+      min_memory = "512M"
+      min_cpu    = "1"
+    }
+    varnish = {
+      min_nodes  = "1"
+      max_nodes  = "2"
+      size       = "s-1vcpu-2gb-intel"
+      port       = "80"
       replicas   = "2"
       max_memory = null
       max_cpu    = null
