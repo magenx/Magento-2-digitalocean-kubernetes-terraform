@@ -2,9 +2,6 @@
 ARG ALPINE_VERSION
 FROM alpine:${ALPINE_VERSION}
 
-LABEL org.opencontainers.image.authors="admin@magenx.com"
-LABEL org.opencontainers.image.source="https://github.com/magenx/Magento-2-docker-configuration"
-
 ARG PHP_PACKAGES
 ARG PHP_VERSION
 
