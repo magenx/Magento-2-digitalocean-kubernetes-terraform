@@ -31,6 +31,21 @@ variable "region" {
   type         = string
 }
 
+variable "brand" {
+  description  = "Brand or business name for this project"
+  type         = string
+}
+
+variable "timezone" {
+  description  = "Timezone for this project"
+  type         = string
+}
+
+variable "alpine_version" {
+  description  = "Docker image base OS Alpine Linux version"
+  type         = string
+}
+
 variable "vpc_uuid" {
   description = "UUID of vpc for this project and environment"
   type        = string
