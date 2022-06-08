@@ -7,11 +7,13 @@ ARG GITHUB_REPO_API_URL="https://api.github.com/repos/magenx/Magento-nginx-confi
 ARG nginx
 
 ARG BRAND
-ARG PHP_USER
 ARG DOMAIN
-ARG ROOT_PATH
-ARG APP_ROOT_PATH
-ARG WEB_ROOT_PATH
+
+ARG PHP_USER="php-${BRAND}"
+ARG ROOT_PATH="/home/${BRAND}"
+ARG APP_ROOT_PATH="/home/${BRAND}/public_html"
+ARG WEB_ROOT_PATH="/home/${BRAND}/public_html/pub"
+
 ARG TIMEZONE
 
 RUN <<EOF
