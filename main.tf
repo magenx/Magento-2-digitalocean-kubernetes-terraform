@@ -49,5 +49,9 @@ module "kubernetes" {
   project            = local.project
   region             = var.region
   vpc_uuid           = module.network.vpc_uuid
+  domain             = local.domain
+  timezone           = var.timezone
+  brand              = var.brand
+  alpine_version     = var.alpine_version
 }
   
