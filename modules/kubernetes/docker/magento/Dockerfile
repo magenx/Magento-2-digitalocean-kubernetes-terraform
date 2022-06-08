@@ -3,10 +3,11 @@ ARG BRAND
 FROM ${BRAND}_php
 
 ARG BRAND
-ARG PHP_USER
-ARG ROOT_PATH
-ARG APP_ROOT_PATH
-ARG WEB_ROOT_PATH
+
+ARG PHP_USER="php-${BRAND}"
+ARG ROOT_PATH="/home/${BRAND}"
+ARG APP_ROOT_PATH="/home/${BRAND}/public_html"
+ARG WEB_ROOT_PATH="/home/${BRAND}/public_html/pub"
 
 RUN <<EOF
     apk update
