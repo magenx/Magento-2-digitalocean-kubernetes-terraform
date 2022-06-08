@@ -6,7 +6,7 @@
 # Build docker image per config
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "docker_image" "this" {
-  for_each     = var.docker_image
+  for_each     = var.kubernetes
   name         = each.key
   force_remove = true
   build {
@@ -14,10 +14,15 @@ resource "docker_image" "this" {
     tag        = ["${var.dockerhub}/${each.key}:latest"]
     no_cache   = true
     
-    build_arg  = var.docker_image[each.key].build_arg
+    build_arg  = {
+      BRAND          = "${var.brand}"
+      DOMAIN         = "${var.domain}"
+      ALPINE_VERSION = "${var.alpine_version}"
+      TIMEZONE       = "${var.timezone}"
+    }
     
     label      = {
-      author : "${var.brand}"
+      author = "${var.brand}"
     }
     
   }
@@ -26,7 +31,7 @@ resource "docker_image" "this" {
 # Push docker image to registry if updated
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "null_resource" "docker_push" {
-  for_each = var.docker_image
+  for_each = var.kubernetes
   
   triggers = {
     docker = docker_image.this[each.key].latest
