@@ -15,7 +15,7 @@ variable "brand" {
 resource "random_string" "project" {
   length         = 7
   lower          = true
-  number         = true
+  numeric        = true
   special        = false
   upper          = false
 }
