@@ -16,6 +16,11 @@ variable "project" {
 })
 }
 
+variable "dokerhub" {
+  description  = "Docker Hub registry account name"
+  type         = string
+}
+
 variable "kubernetes_version" {
   description = "Get the latest version for kubernetes"
   type        = string
