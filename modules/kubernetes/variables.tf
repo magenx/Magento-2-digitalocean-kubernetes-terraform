@@ -51,11 +51,6 @@ variable "timezone" {
   type         = string
 }
 
-variable "alpine_version" {
-  description  = "Docker image base OS Alpine Linux version"
-  type         = string
-}
-
 variable "vpc_uuid" {
   description = "UUID of vpc for this project and environment"
   type        = string
