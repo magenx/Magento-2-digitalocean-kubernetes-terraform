@@ -96,8 +96,8 @@ resource "kubernetes_deployment" "this" {
           }
           resources {
             limits = {
-              memory = each.value.max_memory
-              cpu    = each.value.max_cpu
+              memory = upper(coalesce(each.value.max_memory,regex("[0-9]g",each.value.size)))
+              cpu    = coalesce(each.value.max_cpu,regex("([0-9])vcpu",each.value.size)[0])
             }
             requests = {
               memory = each.value.min_memory
