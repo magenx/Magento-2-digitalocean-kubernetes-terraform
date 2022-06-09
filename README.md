@@ -31,15 +31,24 @@ Named workspaces allow conveniently switching between multiple instances of a si
 A common use for multiple workspaces is to create a parallel, distinct copy of a set of infrastructure in order to test a set of changes before modifying the main production infrastructure. For example, a developer working on a complex set of infrastructure changes might create a new temporary workspace in order to freely experiment with changes without affecting the default workspace.
 
 Create working directory:  
-`mkdir magento && cd magento`
+```
+mkdir magento && cd magento
+```
 
 Using git clone download terraform configuration:  
-`git clone https://github.com/magenx/Magento-2-digitalocean-kubernetes-terraform .`  
+```
+git clone https://github.com/magenx/Magento-2-digitalocean-kubernetes-terraform .
+```  
   
 For ssl certificate configuration add domains and email   
 Point your domains to [DigitalOcean DNS](https://docs.digitalocean.com/tutorials/dns-registrars/)  
 
 Add ssh keys to digitalocean for `admin` and `manager` users.  
+  
+To build docker images using terraform docker provider you need to authenticate with docker hub registry:
+```
+docker login
+```
   
 Update configuration variables according to your project requirements.
 To simplify configuration initialization and lower chances to damage your environment with typos, run init script:
