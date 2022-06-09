@@ -21,7 +21,7 @@ curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list;
 wget https://github.com/digitalocean/doctl/releases/download/v1.76.0/doctl-1.76.0-linux-amd64.tar.gz;
 tar xf doctl-1.76.0-linux-amd64.tar.gz;
-mv doctl /usr/local/bin/
+mv doctl /usr/local/bin/;
 apt-get update && apt-get -y install terraform kubectl docker-ce docker-ce-cli containerd.io docker-compose-plugin;
 }
 
