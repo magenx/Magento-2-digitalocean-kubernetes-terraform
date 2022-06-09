@@ -104,6 +104,11 @@ resource "kubernetes_deployment" "this" {
               cpu    = each.value.min_cpu
             }
           }
+          liveness_probe {
+            http_get {
+              path = "/"
+              port = each.value.port
+          }
         }
       }
     }
