@@ -9,17 +9,20 @@ if [[ -e "this.init.lock" ]]; then
   exit 1
 fi
 
-## install terraform and docker
+## install terraform kubectl docker doctl
 dpkg-query -l terraform docker >/dev/null || {
 apt-get update && apt-get install -y gnupg software-properties-common curl;
 mkdir -p /etc/apt/keyrings;
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
 curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -;
 apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main";
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list;
-apt-get update && apt-get -y install terraform docker-ce docker-ce-cli containerd.io docker-compose-plugin;
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list;
+curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg;
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list;
+wget https://github.com/digitalocean/doctl/releases/download/v1.76.0/doctl-1.76.0-linux-amd64.tar.gz;
+tar xf doctl-1.76.0-linux-amd64.tar.gz;
+mv doctl /usr/local/bin/
+apt-get update && apt-get -y install terraform kubectl docker-ce docker-ce-cli containerd.io docker-compose-plugin;
 }
 
 ## set access token
