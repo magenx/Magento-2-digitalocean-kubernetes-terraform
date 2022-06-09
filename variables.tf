@@ -81,7 +81,8 @@ variable "kubernetes" {
       min_cpu    = "750m"
     }
     elasticsearch = {
-      node_count = "1"
+      min_nodes  = "1"
+      max_nodes  = "2"
       size       = "s-1vcpu-2gb-intel"
       port       = "9200"
       replicas   = "2"
