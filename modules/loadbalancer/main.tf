@@ -25,7 +25,7 @@ resource "digitalocean_loadbalancer" "this" {
   size                   = var.size
   algorithm              = var.algorithm
 
-  enable_proxy_protocol  = true
+  enable_proxy_protocol  = false
   redirect_http_to_https = true
   
   forwarding_rule {
@@ -58,23 +58,5 @@ resource "digitalocean_project_resources" "loadbalancer" {
     digitalocean_loadbalancer.this.urn
   ]
 }
-# # ---------------------------------------------------------------------------------------------------------------------#
-# Assign loadbalancer to kubernetes control
-# # ---------------------------------------------------------------------------------------------------------------------#
-resource "helm_release" "nginx_ingress" {
-  name       = "${var.project.name}"
-  
-  namespace  = "default"
-  repository = "https://charts.bitnami.com/bitnami"
-  chart      = "nginx-ingress-controller"
 
-  set {
-    name  = "service.type"
-    value = "LoadBalancer"
-  }
-  set {
-    name  = "service.annotations.kubernetes\\.digitalocean\\.com/load-balancer-id"
-    value = digitalocean_loadbalancer.this.id
-  }
-}
 
