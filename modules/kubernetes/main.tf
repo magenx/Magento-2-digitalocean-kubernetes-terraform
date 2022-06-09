@@ -128,6 +128,7 @@ resource "kubernetes_service" "this" {
     }
     port {
       port   = each.value.port
+      name   = each.key
     }
   }
 }
