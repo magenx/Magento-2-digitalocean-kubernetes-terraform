@@ -55,10 +55,14 @@ resource "digitalocean_project_resources" "kubernetes" {
   resources = [digitalocean_kubernetes_cluster.magento.urn]
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
-# Deploy docker image to kubernetes cluster
+# Deploy docker image to kubernetes cluster node pool
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "kubernetes_deployment" "this" {
-  for_each = var.kubernetes
+  depends_on = [
+	  docke_image.this,
+	  null_resource.docker_push
+  ]
+  for_each   = var.kubernetes
   metadata {
     name = "${var.project.name}-${each.key}"
   }
