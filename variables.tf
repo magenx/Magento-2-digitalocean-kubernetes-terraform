@@ -57,6 +57,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "128M"
       min_cpu    = "1"
+      tag        = "database"
     }
     magento = {
       min_nodes  = "1"
@@ -68,6 +69,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "756M"
       min_cpu    = "1"
+      tag        = "database"
     }
     nginx = {
       min_nodes  = "1"
@@ -79,6 +81,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "128M"
       min_cpu    = "750m"
+      tag        = "loadbalancer"
     }
     elasticsearch = {
       min_nodes  = "1"
@@ -90,6 +93,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "512M"
       min_cpu    = "1"
+      tag        = null
     }
     varnish = {
       min_nodes  = "1"
@@ -101,6 +105,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "512M"
       min_cpu    = "1"
+      tag        = null
     }
   }
  }
