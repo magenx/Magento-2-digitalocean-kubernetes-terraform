@@ -59,7 +59,7 @@ resource "digitalocean_project_resources" "kubernetes" {
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "kubernetes_deployment" "this" {
   depends_on = [
-	  docke_image.this,
+	  docker_image.this,
 	  null_resource.docker_push
   ]
   for_each   = var.kubernetes
