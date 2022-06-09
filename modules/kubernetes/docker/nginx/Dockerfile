@@ -4,8 +4,6 @@ FROM nginx:mainline-alpine-perl
 ARG GITHUB_REPO_RAW_URL="https://raw.githubusercontent.com/magenx/Magento-nginx-config/master/magento2/"
 ARG GITHUB_REPO_API_URL="https://api.github.com/repos/magenx/Magento-nginx-config/contents/magento2"
 
-ARG nginx
-
 ARG BRAND
 ARG DOMAIN
 
