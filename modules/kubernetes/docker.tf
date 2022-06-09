@@ -39,7 +39,6 @@ resource "null_resource" "docker_push" {
   provisioner "local-exec" {
     interpreter = ["bash", "-c"]
     command = <<-EOT
-        echo "${DOCKERHUB_PASSWORD}" | docker login --username "${DOCKERHUB_USERNAME}" --password-stdin
         docker push "${var.dockerhub}/${each.key}:latest"
       EOT
   }
