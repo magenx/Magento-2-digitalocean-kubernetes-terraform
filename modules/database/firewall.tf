@@ -15,3 +15,4 @@ resource "digitalocean_database_firewall" "this"
     value = "database"
   }
 }
+
