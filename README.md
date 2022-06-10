@@ -11,8 +11,8 @@
   
 ```
 export DIGITALOCEAN_ACCESS_TOKEN=xxx
-export SPACES_ACCESS_KEY_ID=xxx
-export SPACES_SECRET_ACCESS_KEY=xxx
+export DOCKER_REGISTRY_USER=xxx
+export DOCKER_REGISTRY_PASS=xxx
 ```
 
 ## Deploy each environment into isolated project and vpc:
