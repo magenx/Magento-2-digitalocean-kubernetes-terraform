@@ -24,6 +24,11 @@ provider "digitalocean" {}
 
 provider "docker" {
   host = "unix:///var/run/docker.sock"
+  registry_auth {
+    address  = 
+    username = 
+    password = 
+  }
 }
 
 data "digitalocean_kubernetes_cluster" "magento" {
