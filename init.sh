@@ -1,9 +1,13 @@
+#!/bin/bash
+
+## start with development workspace
+workspace=development
 
 if [[ -e "this.init.lock" ]]; then
   echo
   echo "[!][ERROR]: Lock exists"
   echo
-  echo "Terraform workspace available:"
+  echo "[i][INFO]: Terraform workspace available:"
   terraform workspace list
   echo
   exit 1
@@ -25,16 +29,15 @@ mv doctl /usr/local/bin/;
 apt-get update && apt-get -y install terraform kubectl docker-ce docker-ce-cli containerd.io docker-compose-plugin;
 }
 
-## set access token
-if [ -z "${DIGITALOCEAN_ACCESS_TOKEN}" ]; then
-    echo
-    echo "[!][ERROR]: No DIGITALOCEAN_ACCESS_TOKEN token available"
-    echo
-    exit 1
-fi
-
-## start with development workspace
-workspace=development
+echo
+## check for environment variables
+while read variable; do
+  [ -z "${!variable}" ] && { echo "[!][ERROR]: No ${!variable} available"; exit 1; }
+done <<EOF
+DIGITALOCEAN_ACCESS_TOKEN
+DOCKER_REGISTRY_USER
+DOCKER_REGISTRY_PASS
+EOF
 
 echo
 ## init terraform
@@ -62,7 +65,7 @@ if  [ $? -ne 0 ]; then
 fi
 
 echo
-echo "[!][INFO]: Running terraform plan to ${workspace}.plan.out.txt"
+echo "[i][INFO]: Running terraform plan to ${workspace}.plan.out.txt"
 terraform plan -out ${workspace}.plan.out -no-color 2>&1 > ${workspace}.plan.out.txt
 
 if  [ $? -eq 0 ]; then
