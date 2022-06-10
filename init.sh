@@ -32,7 +32,7 @@ apt-get update && apt-get -y install terraform kubectl docker-ce docker-ce-cli c
 echo
 ## check for environment variables
 while read variable; do
-  [ -z "${!variable}" ] && { echo "[!][ERROR]: No ${!variable} available"; exit 1; }
+  [ -z "${!variable}" ] && { echo "[!][ERROR]: No ${variable} available"; exit 1; }
 done <<EOF
 DIGITALOCEAN_ACCESS_TOKEN
 DOCKER_REGISTRY_USER
