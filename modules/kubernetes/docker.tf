@@ -13,9 +13,9 @@ resource "docker_registry_image" "this" {
     #remote_context  = ""
     #suppress_output = true
     
-    force_remove = true
     context      = "${path.module}/docker/${each.key}"
     no_cache     = true
+    force_remove = true
     
     build_args   = {
       BRAND      = "${var.brand}"
