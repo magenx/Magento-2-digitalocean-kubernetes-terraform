@@ -5,7 +5,7 @@
 # # ---------------------------------------------------------------------------------------------------------------------#
 # Build docker image per config and push to registry
 # # ---------------------------------------------------------------------------------------------------------------------#
-resource "docker_image_registry" "this" {
+resource "docker_registry_image" "this" {
   for_each     = var.kubernetes
   name         = "${var.dockerhub}/${each.key}:latest"
 
