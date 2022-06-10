@@ -43,12 +43,9 @@ git clone https://github.com/magenx/Magento-2-digitalocean-kubernetes-terraform 
 For ssl certificate configuration add domains and email   
 Point your domains to [DigitalOcean DNS](https://docs.digitalocean.com/tutorials/dns-registrars/)  
 
-Add ssh keys to digitalocean for `admin` and `manager` users.  
+Add ssh keys to digitalocean for `admin` users.  
   
-To build docker images using terraform docker provider you need to authenticate with docker hub registry:
-```
-docker login
-```
+To build docker images using terraform docker provider you need to authenticate with docker hub registry  
   
 Update configuration variables according to your project requirements.
 To simplify configuration initialization and lower chances to damage your environment with typos, run init script:
