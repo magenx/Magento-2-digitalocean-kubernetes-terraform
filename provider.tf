@@ -9,10 +9,6 @@ terraform {
       source = "hashicorp/kubernetes"
       version = ">= 2.0.0"
     }
-    helm = {
-      source  = "hashicorp/helm"
-      version = ">= 2.0.1"
-    }
     docker = {
       source  = "kreuzwerker/docker"
       version = ">= 2.16.0"
@@ -25,9 +21,9 @@ provider "digitalocean" {}
 provider "docker" {
   host = "unix:///var/run/docker.sock"
   registry_auth {
-    address  = 
-    username = 
-    password = 
+    address  = ""
+    username = ""
+    password = ""
   }
 }
 
@@ -43,15 +39,7 @@ provider "kubernetes" {
     data.digitalocean_kubernetes_cluster.magento.kube_config[0].cluster_ca_certificate
   )
 }
-
-provider "helm" {
-  kubernetes {
-    host  = data.digitalocean_kubernetes_cluster.magento.endpoint
-    token = data.digitalocean_kubernetes_cluster.magento.kube_config[0].token
-    cluster_ca_certificate = base64decode(
-      data.digitalocean_kubernetes_cluster.magento.kube_config[0].cluster_ca_certificate
-    )
-  }
+  
 }
 
   
