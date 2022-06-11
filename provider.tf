@@ -37,7 +37,5 @@ provider "kubernetes" {
     data.digitalocean_kubernetes_cluster.magento.kube_config[0].cluster_ca_certificate
   )
 }
-  
-}
 
   
