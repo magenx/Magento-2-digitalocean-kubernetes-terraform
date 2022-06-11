@@ -19,9 +19,9 @@ terraform {
 provider "digitalocean" {}
 
 provider "docker" {
-  host = "unix:///var/run/docker.sock"
+  host      = "unix:///var/run/docker.sock"
   registry_auth {
-    address  = ""
+    address = "registry-1.docker.io"
   }
 }
 
