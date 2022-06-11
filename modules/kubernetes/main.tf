@@ -50,6 +50,7 @@ resource "digitalocean_kubernetes_node_pool" "this" {
     content {
       ["${var.project.name}-${each.key}", each.value.tag]
    }
+  }
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
 # Assign kubernetes cluster to this project
