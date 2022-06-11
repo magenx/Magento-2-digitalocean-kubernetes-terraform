@@ -22,7 +22,7 @@ resource "digitalocean_kubernetes_cluster" "magento" {
       service  = "varnish"
       priority = "high"
     }
-    tags       = ["${var.project.name}-varnish"]
+    tags       = ["${var.project.name}-varnish", "loadbalancer"]
   }
   
   tags         = ["${var.project.name}-magento-cluster"]
@@ -45,12 +45,7 @@ resource "digitalocean_kubernetes_node_pool" "this" {
     priority = "high"
   }
   
-  dynamic "tags" {
-    for_each = each.value.tag != null ? each.value.tag : []
-    content {
-      ["${var.project.name}-${each.key}", each.value.tag]
-   }
-  }
+  tags   = compact(["${var.project.name}-${each.key}", each.value.tag])
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
 # Assign kubernetes cluster to this project
