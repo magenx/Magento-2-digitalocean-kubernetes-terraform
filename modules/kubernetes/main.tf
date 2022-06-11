@@ -13,16 +13,16 @@ resource "digitalocean_kubernetes_cluster" "magento" {
   version  = var.kubernetes_version
 
   node_pool {
-    name       = "${var.project.name}-pool-frontend"
-    size       = var.kubernetes.node_pool.size
+    name       = "${var.project.name}-varnish"
+    size       = var.kubernetes.varnish.size
     auto_scale = true
-    min_nodes  = var.kubernetes.node_pool.min_nodes
-    max_nodes  = var.kubernetes.node_pool.max_nodes
+    min_nodes  = var.kubernetes.varnish.min_nodes
+    max_nodes  = var.kubernetes.varnish.max_nodes
     labels = {
-      service  = "magento"
+      service  = "varnish"
       priority = "high"
     }
-    tags       = ["${var.project.name}-pool-frontend"]
+    tags       = ["${var.project.name}-varnish"]
   }
   
   tags         = ["${var.project.name}-magento-cluster"]
