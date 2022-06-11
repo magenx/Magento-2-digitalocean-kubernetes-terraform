@@ -22,7 +22,7 @@ resource "digitalocean_kubernetes_cluster" "magento" {
       service  = "varnish"
       priority = "high"
     }
-    tags       = ["${var.project.name}-varnish", "loadbalancer"]
+    tags       = compact(["${var.project.name}-${each.key}", each.value.tag])
   }
   
   tags         = ["${var.project.name}-magento-cluster"]
