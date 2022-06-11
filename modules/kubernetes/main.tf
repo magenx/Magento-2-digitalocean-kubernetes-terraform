@@ -45,7 +45,11 @@ resource "digitalocean_kubernetes_node_pool" "this" {
     priority = "high"
   }
   
-  tags       = ["${var.project.name}-${each.key}", each.value.tag]
+  dynamic "tags" {
+    for_each = each.value.tag != null ? each.value.tag : []
+    content {
+      ["${var.project.name}-${each.key}", each.value.tag]
+   }
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
 # Assign kubernetes cluster to this project
