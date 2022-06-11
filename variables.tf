@@ -81,7 +81,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "128M"
       min_cpu    = "750m"
-      tag        = "loadbalancer"
+      tag        = null
     }
     elasticsearch = {
       min_nodes  = "1"
@@ -105,7 +105,7 @@ variable "kubernetes" {
       max_cpu    = null
       min_memory = "512M"
       min_cpu    = "1"
-      tag        = null
+      tag        = "loadbalancer"
     }
   }
  }
