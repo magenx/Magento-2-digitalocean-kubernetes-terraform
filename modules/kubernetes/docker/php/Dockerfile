@@ -16,7 +16,7 @@ ARG WEB_ROOT_PATH="/home/${BRAND}/public_html/pub"
 
 ARG TIMEZONE
 
-RUN apk update && apk add --update --no-cache acl attr bash curl mariadb-client
+RUN apk update && apk add --update --no-cache acl attr bash curl
 
 SHELL ["/bin/bash","-c"]
 
