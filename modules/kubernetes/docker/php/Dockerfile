@@ -2,7 +2,7 @@
 ARG ALPINE_VERSION="3.16.0"
 FROM alpine:${ALPINE_VERSION}
 
-ARG PHP_PACKAGES="apcu bcmath bz2 calendar ctype curl dom fileinfo fpm gd gettext gmp iconv intl json mbstring mcrypt msgpack mysqli oauth odbc opcache openssl pdo pdo_dblib pdo_mysql pdo_odbc pdo_sqlite pear phar redis simplexml soap sockets sodium sqlite3 ssh2 tokenizer xmlreader xmlrpc xmlwriter xsl zip"
+ARG PHP_PACKAGES="apcu bcmath bz2 calendar ctype curl dom fileinfo fpm gd gettext gmp iconv intl json mbstring mysqli odbc opcache openssl pdo pdo_dblib pdo_mysql pdo_odbc pdo_sqlite pear phar redis simplexml soap sockets sodium sqlite3 tokenizer xmlreader xmlwriter xsl zip"
 ARG PHP_VERSION="php81"
 
 ARG PHP_FPM_POOL="/etc/${PHP_VERSION}/php-fpm.d/www.conf"
@@ -17,7 +17,6 @@ ARG WEB_ROOT_PATH="/home/${BRAND}/public_html/pub"
 ARG TIMEZONE
 
 RUN apk update && apk add --update --no-cache acl attr bash curl mariadb-client
-
 
 SHELL ["/bin/bash","-c"]
 
