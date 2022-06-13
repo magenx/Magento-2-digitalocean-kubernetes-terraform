@@ -101,10 +101,20 @@ resource "kubernetes_deployment" "this" {
               cpu    = each.value.min_cpu
             }
           }
-          liveness_probe {
-            http_get {
-              path = "/"
-              port = each.value.port
+          dynamic "liveness_probe" {
+            for_each = each.value.port != null ? [each.value.port] : []
+            content {
+              http_get {
+                port = each.value.port
+              }
+              exec {
+		command = ["cat","/tmp/liveness_probe"]
+	      }
+            inital_delay_seconds = 5
+            period_seconds       = 5
+            failure_threashold   = 3
+            sucess_threashold    = 1
+            timeout_seconds      = 120
           }
         }
       }
