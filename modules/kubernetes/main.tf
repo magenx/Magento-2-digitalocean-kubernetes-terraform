@@ -28,7 +28,7 @@ resource "digitalocean_kubernetes_cluster" "magento" {
   tags         = ["${var.project.name}-magento-cluster"]
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
-# Create node pool for elasticsearch
+# Create node pool for cluster services
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "digitalocean_kubernetes_node_pool" "this" {
   for_each   = { for pool,variables in var.kubernetes: pool => variables if pool != "varnish" }
