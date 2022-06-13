@@ -113,7 +113,7 @@ resource "kubernetes_deployment" "this" {
             initial_delay_seconds = 5
             period_seconds        = 5
             failure_threshold     = 3
-            sucess_threshold      = 1
+            success_threshold     = 1
             timeout_seconds       = 120
           }
         }
