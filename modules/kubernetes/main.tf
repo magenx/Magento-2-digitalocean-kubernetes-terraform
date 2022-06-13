@@ -19,7 +19,7 @@ resource "digitalocean_kubernetes_cluster" "magento" {
     min_nodes  = var.kubernetes.varnish.min_nodes
     max_nodes  = var.kubernetes.varnish.max_nodes
     labels = {
-      service  = "varnish"
+      service  = "${var.project.name}-varnish"
       priority = "high"
     }
     tags       = compact(["${var.project.name}-varnish", var.kubernetes.varnish.tag])
@@ -41,7 +41,7 @@ resource "digitalocean_kubernetes_node_pool" "this" {
   max_nodes  = each.value.max_nodes
   
   labels = {
-    service  = each.key
+    service  = "${var.project.name}-${each.key}"
     priority = "high"
   }
   
