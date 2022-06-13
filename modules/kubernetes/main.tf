@@ -110,11 +110,11 @@ resource "kubernetes_deployment" "this" {
               exec {
 		command = ["cat","/tmp/liveness_probe"]
 	      }
-            inital_delay_seconds = 5
-            period_seconds       = 5
-            failure_threashold   = 3
-            sucess_threashold    = 1
-            timeout_seconds      = 120
+            initial_delay_seconds = 5
+            period_seconds        = 5
+            failure_threshold     = 3
+            sucess_threshold      = 1
+            timeout_seconds       = 120
           }
         }
       }
