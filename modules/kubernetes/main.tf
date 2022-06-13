@@ -107,9 +107,6 @@ resource "kubernetes_deployment" "this" {
               http_get {
                 port = each.value.port
               }
-              exec {
-		command = ["cat","/tmp/liveness_probe"]
-	      }
             initial_delay_seconds = 5
             period_seconds        = 5
             failure_threshold     = 3
