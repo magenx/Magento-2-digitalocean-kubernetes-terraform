@@ -52,6 +52,6 @@ module "kubernetes" {
   domain             = local.domain
   timezone           = var.timezone
   brand              = var.brand
-  dockerhub          = var.dockerhub
+  registry_account   = var.registry_account
 }
   
