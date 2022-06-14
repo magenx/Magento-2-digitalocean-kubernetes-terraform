@@ -110,7 +110,7 @@ variable "kubernetes" {
   }
  }
 
-variable "dockerhub" {
+variable "registry_account" {
   description = "Docker Hub registry account name"
   default     = ""
 }
