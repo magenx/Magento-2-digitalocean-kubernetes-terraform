@@ -85,10 +85,10 @@ resource "kubernetes_deployment" "this" {
         share_process_namespace          = false
         termination_grace_period_seconds = 30
         image_pull_secrets {
-	  name  = "dockerhub"
+	  name  = "hubdockercom"
 	}
         container {
-          image = "${var.dockerhub}/${each.key}"
+          image = "${var.registry_account}/${each.key}"
           name  = each.key
           port {
             container_port = each.value.port
