@@ -84,7 +84,9 @@ resource "kubernetes_deployment" "this" {
         restart_policy                   = "Always"
         share_process_namespace          = false
         termination_grace_period_seconds = 30
-		
+        image_pull_secrets {
+	  name  = "dockerhub"
+	}
         container {
           image = "${var.dockerhub}/${each.key}"
           name  = each.key
