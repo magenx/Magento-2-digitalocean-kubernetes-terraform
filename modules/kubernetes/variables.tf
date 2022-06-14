@@ -16,7 +16,7 @@ variable "project" {
 })
 }
 
-variable "dockerhub" {
+variable "registry_account" {
   description  = "Docker Hub registry account name"
   type         = string
 }
