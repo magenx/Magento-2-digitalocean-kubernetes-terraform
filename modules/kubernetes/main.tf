@@ -92,6 +92,7 @@ resource "kubernetes_deployment" "this" {
           name  = each.key
           port {
             container_port = each.value.port
+            name           = each.key
           }
           resources {
             limits = {
