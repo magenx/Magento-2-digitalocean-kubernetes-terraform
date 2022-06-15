@@ -45,7 +45,7 @@ Point your domains to [DigitalOcean DNS](https://docs.digitalocean.com/tutorials
 
 Add ssh keys to digitalocean for `admin` users.  
   
-To build docker images using terraform docker provider you need to authenticate with docker hub registry  
+To build docker images using docker hub registry auto build  
   
 Update configuration variables according to your project requirements.
 To simplify configuration initialization and lower chances to damage your environment with typos, run init script:
