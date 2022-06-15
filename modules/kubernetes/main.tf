@@ -58,7 +58,6 @@ resource "digitalocean_project_resources" "kubernetes" {
 # Deploy docker image to kubernetes cluster node pool
 # # ---------------------------------------------------------------------------------------------------------------------#
 resource "kubernetes_deployment" "this" {
-  depends_on = [docker_registry_image.this]
   for_each   = var.kubernetes
   metadata {
     name = "${var.project.name}-${each.key}"
