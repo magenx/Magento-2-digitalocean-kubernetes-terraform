@@ -9,21 +9,10 @@ terraform {
       source = "hashicorp/kubernetes"
       version = ">= 2.0.0"
     }
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = ">= 2.16.0"
-    }
   }
 }
 
 provider "digitalocean" {}
-
-provider "docker" {
-  host      = "unix:///var/run/docker.sock"
-  registry_auth {
-    address = "registry-1.docker.io"
-  }
-}
 
 data "digitalocean_kubernetes_cluster" "magento" {
   depends_on = [module.kubernetes.cluster_id]
