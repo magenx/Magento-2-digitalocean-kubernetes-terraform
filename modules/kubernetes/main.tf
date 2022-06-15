@@ -93,6 +93,9 @@ resource "kubernetes_deployment" "this" {
             container_port = each.value.port
             name           = each.key
           }
+          env {
+            local.env[each.key]
+	  }
           resources {
             limits = {
               memory = upper(coalesce(each.value.max_memory,regex("[0-9]g",each.value.size)))
@@ -107,7 +110,7 @@ resource "kubernetes_deployment" "this" {
             for_each = each.value.port != null ? [each.value.port] : []
             content {
               http_get {
-                port = each.value.port
+                port = liveness_probe.value.port
               }
             initial_delay_seconds = 5
             period_seconds        = 5
