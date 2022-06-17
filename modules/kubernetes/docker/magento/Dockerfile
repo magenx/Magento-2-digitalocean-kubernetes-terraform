@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:labs
-FROM ${BRAND}/php:1.0
+FROM ${BRAND}/php
 
 ARG BRAND
 
