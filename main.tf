@@ -53,5 +53,6 @@ module "kubernetes" {
   timezone           = var.timezone
   brand              = var.brand
   registry_account   = var.registry_account
+  registry_password  = var.registry_password
 }
   
