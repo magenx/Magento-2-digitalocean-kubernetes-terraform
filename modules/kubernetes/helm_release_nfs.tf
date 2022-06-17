@@ -22,10 +22,13 @@ resource "kubernetes_storage_class" "nfs" {
   metadata {
     name        = "openebs-rwx"
     annotations = {
-      "openebs.io/cas-type" = "nfsrwx"
-      "cas.openebs.io/config" = {
-        "NFSServerType" = "kernel"
-        "BackendStorageClass" = "openebs-hostpath"
+      "openebs.io/cas-type"   = "nfsrwx"
+      "cas.openebs.io/config" =<<-EOF
+         - name: NFSServerType
+           value: "kernel"
+         - name: BackendStorageClass
+           value: "openebs-hostpath"
+      EOF
      }
     }
   }
