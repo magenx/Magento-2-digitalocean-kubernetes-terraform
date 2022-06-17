@@ -26,6 +26,7 @@ resource "kubernetes_storage_class" "nfs" {
       "cas.openebs.io/config" = {
         "NFSServerType" = "kernel"
         "BackendStorageClass" = "openebs-hostpath"
+     }
     }
   }
   storage_provisioner = "openebs.io/nfsrwx"
