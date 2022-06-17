@@ -40,8 +40,8 @@ resource "kubernetes_persistent_volume_claim" "nfs" {
     name = "${var.project.name}-nfs"
   }
   spec {
-    access_modes      = ["ReadWriteMany"]
-    storage_class_nme = "openebs-rwx"
+    access_modes       = ["ReadWriteMany"]
+    storage_class_name = "openebs-rwx"
     resources {
       requests = {
         storage = "100G"
