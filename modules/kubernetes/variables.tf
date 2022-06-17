@@ -21,6 +21,11 @@ variable "registry_account" {
   type         = string
 }
 
+variable "registry_password" {
+  description = "Docker Hub registry account password"
+  type        = string
+}
+
 variable "kubernetes_version" {
   description = "Get the latest version for kubernetes"
   type        = string
