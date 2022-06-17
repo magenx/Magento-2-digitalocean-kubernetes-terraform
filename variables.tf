@@ -45,6 +45,16 @@ variable "loadbalancer" {
   }
 }
 
+variable "registry_account" {
+  description = "Docker Hub registry account name"
+  default     = ""
+}
+
+variable "registry_passowrd" {
+  description = "Docker Hub registry account password"
+  type        = string
+}
+
 variable "kubernetes" {
   default = {
     php = {
@@ -109,11 +119,6 @@ variable "kubernetes" {
     }
   }
  }
-
-variable "registry_account" {
-  description = "Docker Hub registry account name"
-  default     = ""
-}
 
 variable "database" {
   default = {
