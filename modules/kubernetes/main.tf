@@ -93,8 +93,12 @@ resource "kubernetes_deployment" "this" {
             container_port = each.value.port
             name           = each.key
           }
-          env {
-            local.env[each.key]
+          dynamic "env" {
+            for_each = local.env[each.key]
+            content {
+              name   = env.key
+              value  = env.value
+	    }
 	  }
           resources {
             limits = {
@@ -106,11 +110,9 @@ resource "kubernetes_deployment" "this" {
               cpu    = each.value.min_cpu
             }
           }
-          dynamic "liveness_probe" {
-            for_each = each.value.port != null ? [each.value.port] : []
-            content {
+          liveness_probe
               http_get {
-                port = liveness_probe.value.port
+                port = each.value.port
               }
             initial_delay_seconds = 5
             period_seconds        = 5
@@ -122,7 +124,6 @@ resource "kubernetes_deployment" "this" {
       }
     }
   }
-}
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
 # Deploy docker image to kubernetes cluster
