@@ -84,7 +84,7 @@ resource "kubernetes_deployment" "this" {
         share_process_namespace          = false
         termination_grace_period_seconds = 30
         image_pull_secrets {
-	  name  = "hubdockercom"
+	  name  = kubernetes_secret.hubdockercom.metadata.0.name
 	}
         container {
           image = "${var.registry_account}/${each.key}"
