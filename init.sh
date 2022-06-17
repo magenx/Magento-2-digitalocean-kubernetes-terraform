@@ -35,8 +35,7 @@ while read variable; do
   [ -z "${!variable}" ] && { echo "[!][ERROR]: No ${variable} available"; exit 1; }
 done <<EOF
 DIGITALOCEAN_ACCESS_TOKEN
-DOCKER_REGISTRY_USER
-DOCKER_REGISTRY_PASS
+TF_VAR_registry_password
 EOF
 
 echo
