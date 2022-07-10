@@ -16,14 +16,9 @@ variable "project" {
 })
 }
 
-variable "registry_account" {
-  description  = "Docker Hub registry account name"
-  type         = string
-}
-
-variable "registry_password" {
-  description = "Docker Hub registry account password"
-  type        = string
+variable "docker_registry" {
+  description  = "Docker Hub registry account details"
+  type         = map
 }
 
 variable "kubernetes_version" {
