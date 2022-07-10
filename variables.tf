@@ -45,6 +45,11 @@ variable "loadbalancer" {
   }
 }
 
+variable "registry_server" {
+  description = "Docker Hub registry server name"
+  default     = "https://registry.hub.docker.com/v2"
+}
+
 variable "registry_account" {
   description = "Docker Hub registry account name"
   default     = ""
