@@ -87,7 +87,7 @@ resource "kubernetes_deployment" "this" {
 	  name  = kubernetes_secret.hubdockercom.metadata.0.name
 	}
         container {
-          image = "${var.registry_account}/${each.key}"
+          image = "${var.docker_registry.account}/${each.key}"
           name  = each.key
           port {
             container_port = each.value.port
