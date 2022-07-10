@@ -15,11 +15,11 @@ resource "kubernetes_secret" "hubdockercom" {
   data = {
     ".dockerconfigjson" = jsonencode({
       auths = {
-        "${var.registry_server}" = {
-          "username" = var.registry_username
-          "password" = var.registry_password
-          "email"    = var.registry_email
-          "auth"     = base64encode("${var.registry_username}:${var.registry_password}")
+        "${var.docker_registry.server}" = {
+          "username" = var.docker_registry.username
+          "password" = var.docker_registry.password
+          "email"    = var.docker_registry.email
+          "auth"     = base64encode("${var.docker_registry.username}:${var.docker_registry.password}")
         }
       }
     })
