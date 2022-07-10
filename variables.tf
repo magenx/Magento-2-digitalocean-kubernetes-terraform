@@ -45,19 +45,13 @@ variable "loadbalancer" {
   }
 }
 
-variable "registry_server" {
-  description = "Docker Hub registry server name"
-  default     = "https://registry.hub.docker.com/v2"
-}
-
-variable "registry_account" {
-  description = "Docker Hub registry account name"
-  default     = ""
-}
-
-variable "registry_passowrd" {
-  description = "Docker Hub registry account password"
-  type        = string
+variable "docker_registry" {
+  description = "Docker Hub registry account details"
+  default     = {
+    server      = ""
+    email       = ""
+    account     = ""
+    password    = ""
 }
 
 variable "kubernetes" {
