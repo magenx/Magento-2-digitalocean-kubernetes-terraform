@@ -51,6 +51,7 @@ variable "docker_registry" {
     server      = ""
     email       = ""
     account     = ""
+    username    = ""
     password    = ""
 }
 
